@@ -1,7 +1,7 @@
 package HomeWork4;
 
 public class Cat extends Pet {
-    public int remainsLives;
+    private int remainsLives;
 
     public Cat(String name, int age, boolean hungry) {
         super(name, age, hungry);

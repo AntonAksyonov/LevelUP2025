@@ -26,7 +26,7 @@ public class Owner {
 
     private static void feedsPets(Pet[] pets) {
         boolean eat;
-        for (Pet pet: pets) {
+        for (Pet pet : pets) {
             eat = pet.eat();
             System.out.println(pet.toString() + " - " + (!eat ? "не " : "") + "поел");
         }

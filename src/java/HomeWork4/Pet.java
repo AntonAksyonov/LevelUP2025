@@ -13,7 +13,7 @@ public class Pet {
 
     public void makeNoise() {
         System.out.println("Звук издаваемый животным");
-    };
+    }
 
     public boolean eat() {
         if (this.hungry) {
