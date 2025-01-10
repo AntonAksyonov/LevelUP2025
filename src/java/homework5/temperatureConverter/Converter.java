@@ -1,14 +1,50 @@
 package homework5.temperatureConverter;
 
-public enum Converter {
-    C, F, K;
-
+public class Converter {
     private double resultCelsius = 0;
     private double resultFahrenheit = 0;
     private double resultKelvins = 0;
 
+    public Converter(double value, CI CIFrom) {
+        switch (CIFrom) {
+            case CI.C : {
+                setResultCelsius(value);
+                break;
+            }
+            case CI.F : {
+                setResultFahrenheit(value);
+                break;
+            }
+            case CI.K : {
+                setResultKelvins(value);
+                break;
+            }
+        }
+    }
+
     public double getResultCelsius() {
         return resultCelsius;
+    }
+
+    public static void convertPrint(double value, CI CIFrom, CI CITo) {
+        Converter converter = new Converter(value, CIFrom);
+        double result = 0;
+
+        switch (CITo){
+            case CI.C : {
+                result = converter.getResultCelsius();
+                break;
+            }
+            case CI.F : {
+                result = converter.getResultFahrenheit();
+                break;
+            }
+            case CI.K : {
+                result = converter.getResultKelvins();
+                break;
+            }
+        }
+        System.out.println(value + CIFrom.toString() + " = " + result + CITo.toString());
     }
 
     public void setResultCelsius(double resultCelsius) {
