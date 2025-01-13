@@ -1,4 +1,4 @@
-package lessons6.jenerics;
+package lessons6.generics;
 
 public class Account<T> {
     private T owner;
