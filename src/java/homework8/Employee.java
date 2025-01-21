@@ -1,7 +1,7 @@
 package homework8;
 
 public class Employee implements Comparable<Employee> {
-    private String fio;
+    private final String fio;
     private String serviceNumber;
     private int workExperience;
 

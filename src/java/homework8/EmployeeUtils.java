@@ -26,37 +26,37 @@ public class EmployeeUtils {
         }
     }
 
-    private static String setFIO() {
-        return setFIO(2);
+    private static String generateFio() {
+        return generateFio(2);
     }
 
     private static String[][] fioArray = new String[3][10];
 
     private static void initFioArray() {
-        fioArray[0] = new String[]{"Маврии", "Мавринский", "Мавроди", "Мавродиев", "Мавродий", "Мавродин", "Маврыкин"
-                , "Маврычев", "Магеркин", "Магеря"};
-        fioArray[1] = new String[]{"Абакум", " Абрам", " Абросим", " Аввакум", " Август", " Авдей", " Авдий", " Авель"
-                , " Авенир", " Аверий"};
-        fioArray[2] = new String[]{"Ибрагимович", "Иванович", "Иваныч", "Ивсталинович", "Игнатович", "Игнатьевич"
-                , "Игоревич", "Измаилович", "Изотович", "Израилевич"};
+        fioArray[0] = new String[]{"Маврии", "Мавринский", "Мавроди", "Мавродиев", "Мавродий", "Мавродин", "Маврыкин",
+                "Маврычев", "Магеркин", "Магеря"};
+        fioArray[1] = new String[]{"Абакум", "Абрам", "Абросим", "Аввакум", "Август", "Авдей", "Авдий", "Авель",
+                "Авенир", "Аверий"};
+        fioArray[2] = new String[]{"Ибрагимович", "Иванович", "Иваныч", "Ивсталинович", "Игнатович", "Игнатьевич",
+                "Игоревич", "Измаилович", "Изотович", "Израилевич"};
     }
 
-    private static String setFIO(int indexFIO) {
+    private static String generateFio(int indexFIO) {
         int index = (int) (Math.random() * 9);
         if (indexFIO > 0) {
-            return setFIO(indexFIO - 1) + " " + fioArray[indexFIO][index].trim();
+            return generateFio(indexFIO - 1) + " " + fioArray[indexFIO][index].trim();
         } else {
             return fioArray[indexFIO][index].trim();
         }
     }
 
-    public static void setEmployees(int size, Collection<Employee> employees) throws Exception {
+    public static void generateEmployees(int size, Collection<Employee> employees) throws Exception {
         if (size <= 0) {
-            throw new Exception("Размер коллекуии должен быть больше 0");
+            throw new RuntimeException("Размер коллекуии должен быть больше 0");
         }
         initFioArray();
         for (int index = 0; index < size; index++) {
-            employees.add(new Employee(setFIO(), String.valueOf(1000 + index), (int) (Math.random() * 40)));
+            employees.add(new Employee(generateFio(), String.valueOf(1000 + index), (int) (Math.random() * 40)));
         }
     }
 }
