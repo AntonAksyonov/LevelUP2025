@@ -1,4 +1,4 @@
-package lessons6.generics;
+package lesson6.generics;
 
 public class AccountStarter {
     public static void main(String[] args) {

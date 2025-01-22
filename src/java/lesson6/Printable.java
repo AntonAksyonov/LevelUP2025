@@ -1,4 +1,4 @@
-package lessons6;
+package lesson6;
 
 public interface Printable {
     default void print() {

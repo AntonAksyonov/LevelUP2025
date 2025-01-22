@@ -1,4 +1,4 @@
-package lessons6.problems;
+package lesson6.problems;
 
 public interface D extends B, C{
 //    public static int VALUE = 100;

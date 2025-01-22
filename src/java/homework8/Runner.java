@@ -17,7 +17,7 @@ public class Runner {
 
         System.out.println(arrayListEmployees.getClass().getName());
         EmployeeUtils.printEmployee(arrayListEmployees, 10);
-        EmployeeUtils.deleteEmployee((LinkedList)linkedListForArrayList);
+        EmployeeUtils.deleteEmployee((LinkedList) linkedListForArrayList);
         arrayListEmployees = new ArrayList<>(linkedListForArrayList);
         System.out.println(arrayListEmployees);
         System.out.println(arrayListEmployees.size());
@@ -25,14 +25,14 @@ public class Runner {
 
         System.out.println(linkedListEmployees.getClass().getName());
         EmployeeUtils.printEmployee(linkedListEmployees, 10);
-        EmployeeUtils.deleteEmployee((LinkedList)linkedListEmployees);
+        EmployeeUtils.deleteEmployee((LinkedList) linkedListEmployees);
         System.out.println(linkedListEmployees);
         System.out.println(linkedListEmployees.size());
         System.out.println("----");
 
         System.out.println(treeSetEmployees.getClass().getName());
         EmployeeUtils.printEmployee(treeSetEmployees, 10);
-        EmployeeUtils.deleteEmployee((LinkedList)linkedListForTreeSet);
+        EmployeeUtils.deleteEmployee((LinkedList) linkedListForTreeSet);
         treeSetEmployees = new TreeSet<>(linkedListForTreeSet);
         System.out.println(treeSetEmployees);
         System.out.println(treeSetEmployees.size());

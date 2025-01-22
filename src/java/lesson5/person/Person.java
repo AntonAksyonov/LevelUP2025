@@ -1,8 +1,5 @@
 package lesson5.person;
 
-import jdk.jshell.Snippet;
-import lessons6.PersonalAccount;
-
 public abstract class Person  extends Human{
     Gender gender; //false - male, true - female
 

@@ -1,4 +1,4 @@
-package lessons6;
+package lesson6;
 
 public class Salary implements Withdrawable, HasDeposit {
 

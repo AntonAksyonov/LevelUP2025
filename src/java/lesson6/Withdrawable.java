@@ -1,4 +1,4 @@
-package lessons6;
+package lesson6;
 
 public interface Withdrawable {
     void withdraw(long money);

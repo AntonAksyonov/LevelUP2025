@@ -1,4 +1,4 @@
-package lessons6.problems;
+package lesson6.problems;
 
 public class DImpl implements D {
 

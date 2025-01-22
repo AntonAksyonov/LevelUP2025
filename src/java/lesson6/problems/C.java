@@ -1,4 +1,4 @@
-package lessons6.problems;
+package lesson6.problems;
 
 public interface C extends A {
     long c();
