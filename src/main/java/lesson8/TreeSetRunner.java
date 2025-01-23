@@ -17,12 +17,14 @@ public class TreeSetRunner {
 //        bigDecimals.add(BigDecimal.TEN);
         System.out.println(bigDecimals);
 
-        Set<Car> cars = new TreeSet<>(new Comparator<Car>() {
-            @Override
-            public int compare(Car o1, Car o2) {
-                return o1.getMark().compareTo(o2.getMark());
-            }
-        });
+//        Set<Car> cars = new TreeSet<>(new Comparator<Car>() {
+//            @Override
+//            public int compare(Car o1, Car o2) {
+//                return o1.getMark().compareTo(o2.getMark());
+//            }
+//        });
+
+        Set<Car> cars = new TreeSet<>((o1, o2) -> o1.getMark().compareTo(o2.getMark()));
         cars.add(new Car("Skoda", "Octavia"));
         cars.add(new Car("Audi", "A4"));
         cars.add(new Car("VW", "Tiga"));

@@ -69,6 +69,10 @@ public class Account {
 //        return "Hello";
 //    }
 
+    public LocalDateTime getCloseAt() {
+        return closeAt;
+    }
+
     public String toString() {
         return "Account{" +
                 "accountNumber='" + accountNumber + '\'' +
