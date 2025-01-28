@@ -1,6 +1,6 @@
-package homework9.phone_directory;
+package homework9.phonedirectory;
 
-import homework9.influence_hash_code.EmployeeUtils;
+import homework9.influencehashcode.EmployeeUtils;
 
 import java.util.Set;
 import java.util.TreeSet;

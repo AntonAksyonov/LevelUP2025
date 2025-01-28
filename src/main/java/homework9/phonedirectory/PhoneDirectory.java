@@ -1,9 +1,7 @@
-package homework9.phone_directory;
+package homework9.phonedirectory;
 
 import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
-import java.util.TreeSet;
 
 public class PhoneDirectory implements Comparable<PhoneDirectory> {
     private final String fio;
@@ -22,22 +20,18 @@ public class PhoneDirectory implements Comparable<PhoneDirectory> {
     }
 
     public String getFio() {
-
         return fio;
     }
 
     public String getNumber() {
-
         return number;
     }
 
     public Set<String> getListContacts() {
-
         return listContacts;
     }
 
     public void setListContacts(Set<String> listContacts) {
-
         this.listContacts = listContacts;
     }
 

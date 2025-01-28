@@ -1,4 +1,4 @@
-package homework9.influence_hash_code;
+package homework9.influencehashcode;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -62,18 +62,18 @@ public class EmployeeUtils {
             }
     };
 
-    private static String generateFio(int indexFIO) {
+    private static String generateFio(int indexFio) {
         int index = (int) (Math.random() * 19);
-        if (indexFIO > 0) {
-            return generateFio(indexFIO - 1) + " " + fioArray[indexFIO][index];
+        if (indexFio > 0) {
+            return generateFio(indexFio - 1) + " " + fioArray[indexFio][index];
         } else {
-            return fioArray[indexFIO][index];
+            return fioArray[indexFio][index];
         }
     }
 
     public static void generateEmployees(int size, Collection<Employee> employees) throws Exception {
         if (size <= 0) {
-            throw new RuntimeException("Размер коллекуии должен быть больше 0");
+            throw new RuntimeException("Размер коллекции должен быть больше 0");
         }
         for (int index = 0; index < size; index++) {
             employees.add(new Employee(generateFio(), String.valueOf(1000 + index), (int) (Math.random() * 40)));

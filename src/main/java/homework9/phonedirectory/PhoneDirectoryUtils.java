@@ -1,8 +1,16 @@
-package homework9.phone_directory;
+package homework9.phonedirectory;
 
-import homework9.influence_hash_code.EmployeeUtils;
+import homework9.influencehashcode.EmployeeUtils;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class PhoneDirectoryUtils {
     private static String generateNumber() {
@@ -95,7 +103,6 @@ public class PhoneDirectoryUtils {
             }
             phoneDirectoryArray[index].setListContactsArray(listContactsArray);
         }
-
         return phoneDirectoryArray;
     }
 
@@ -114,14 +121,17 @@ public class PhoneDirectoryUtils {
             }
         }
 
-        Set<TopNumber> topNumbers = new TreeSet<>();
-        for (Map.Entry<String, Integer> entry : topNumbersMap.entrySet()) {
-            topNumbers.add(new TopNumber(entry.getKey(), entry.getValue()));
-        }
-        int index = 0;
-        for (Iterator<TopNumber> iterator = topNumbers.iterator(); index < firstRecords && iterator.hasNext(); index++) {
+        List<Map.Entry<String, Integer>> topNumbersList = new ArrayList<>(topNumbersMap.entrySet());
+        topNumbersList.sort(Map.Entry.comparingByValue());
 
-            System.out.println(iterator.next());
+        System.out.println("Топ номера: ");
+        int index = 0;
+        for (Map.Entry<String, Integer> entry : topNumbersList.reversed()) {
+            System.out.println(entry);
+            index++;
+            if (index >= firstRecords) {
+                break;
+            }
         }
     }
 
@@ -167,8 +177,9 @@ public class PhoneDirectoryUtils {
             }
         }
 
+        System.out.println("Топ номера: ");
         for (int index = 0; index < firstRecords && index < sizeTopNumber; index++) {
-            System.out.println("number=%s, count=%d".formatted(topNumber[index], topNumberCount[index]));
+            System.out.println("%s=%d".formatted(topNumber[index], topNumberCount[index]));
         }
     }
 }

@@ -1,7 +1,7 @@
-package homework9.influence_hash_code;
+package homework9.influencehashcode;
 
 public class Employee implements Comparable<Employee> {
-    static boolean egualHashCode = false;
+    static boolean equalHashCode = false;
 
     private final String fio;
     private String serviceNumber;
@@ -21,8 +21,8 @@ public class Employee implements Comparable<Employee> {
         return fio;
     }
 
-    public static void setEgualHashCode(boolean egualHashCode) {
-        Employee.egualHashCode = egualHashCode;
+    public static void offHashCode(boolean equalHashCode) {
+        Employee.equalHashCode = equalHashCode;
     }
 
     @Override
@@ -41,7 +41,6 @@ public class Employee implements Comparable<Employee> {
 
     @Override
     public int hashCode() {
-        return egualHashCode ? 1 : super.hashCode();
-
+        return equalHashCode ? 1 : super.hashCode();
     }
 }

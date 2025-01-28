@@ -1,11 +1,15 @@
-package homework9.influence_hash_code;
+package homework9.influencehashcode;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Runner {
     public static void main(String[] args) throws Exception {
 
-        Employee.setEgualHashCode(true);
+        Employee.offHashCode(true);
 
         EmployeeUtils.runTimer();
         List<Employee> arrayListEmployees = new ArrayList<>();
