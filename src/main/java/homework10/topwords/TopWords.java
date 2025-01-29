@@ -9,6 +9,8 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class TopWords {
+    public static final long QUANTITY_VALUES_OUTPUT = 7;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         if (scanner.hasNextLine()) {
@@ -23,7 +25,7 @@ public class TopWords {
             List<Map.Entry<String, Long>> topWordsList = new ArrayList<>(topWordsMap.entrySet());
             topWordsList.sort(Map.Entry.<String, Long>comparingByValue().reversed());
             System.out.println("Слова часто встречающиеся в тексте (в порядке убывания частоты появления):");
-            topWordsList.stream().limit(7).forEach(it -> System.out.println(it.getKey()));
+            topWordsList.stream().limit(QUANTITY_VALUES_OUTPUT).forEach(it -> System.out.println(it.getKey()));
         }
     }
 }
