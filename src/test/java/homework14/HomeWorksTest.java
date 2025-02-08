@@ -42,9 +42,9 @@ public class HomeWorksTest {
     public void testCheckpointPassage() {
 
         Automobile automobile = new Truck("54845", 75, 4, 2, 4, 8);
-        Assertions.assertEquals(true, new CheckpointPassage(automobile).getPassageAllowed());
+        Assertions.assertTrue(new CheckpointPassage(automobile).getPassageAllowed());
 
         automobile = new Truck("54845", 85, 4, 2, 4, 8);
-        Assertions.assertEquals(false, new CheckpointPassage(automobile).getPassageAllowed());
+        Assertions.assertFalse(new CheckpointPassage(automobile).getPassageAllowed());
     }
 }
