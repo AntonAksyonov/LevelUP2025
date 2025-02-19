@@ -17,13 +17,15 @@ public class Logger extends Thread {
     private final String message;
 
     @Override
-    public synchronized void run() {
+    public void run() {
         try {
             while (!isInterrupted()) {
                 int millisSleep = new Random().nextInt(5000);
                 Thread.sleep(millisSleep);
                 try (FileWriter fileWriter = new FileWriter(SRC_RESOURCES_LOG, true)) {
-                    fileWriter.write("%s %s %s %s%s".formatted(LocalDateTime.now().toString(), loggingLevel.name(), Thread.currentThread().threadId(), message, "\n"));
+                    synchronized (lock) {
+                        fileWriter.write("%s %s %s %s%s".formatted(LocalDateTime.now().toString(), loggingLevel.name(), Thread.currentThread().threadId(), message, "\n"));
+                    }
                 }
             }
         } catch (InterruptedException e) {
