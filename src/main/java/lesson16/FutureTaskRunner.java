@@ -14,20 +14,20 @@ public class FutureTaskRunner {
         System.out.println("Программа начала свою работу %s".formatted(DATE_TIME_FORMATTER.format(LocalDateTime.now())));
         long time = System.currentTimeMillis();
 
-        Callable<Integer> callable = new Callable<>() {
+        Callable<Void> callable = new Callable<>() {
             @Override
-            public Integer call() throws Exception {
-                Thread.sleep(10);
+            public Void call() throws Exception {
+                Thread.sleep(10000);
 //                for (;;) {
 //
 //                }
 //                wait(1000);
 //                return 0;
-                return 1;
+                return null;
             }
         };
 
-        FutureTask<Integer> futureTask = new FutureTask<>(callable);
+        FutureTask<Void> futureTask = new FutureTask<>(callable);
         new Thread(futureTask).start();
 //        futureTask.run();
 
