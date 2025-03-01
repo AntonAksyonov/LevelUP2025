@@ -1,8 +1,6 @@
 package homework19;
 
 import homework19.util.DbGuideHelper;
-import lesson19.Employee;
-import lesson19.util.DbHelper;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -36,8 +34,7 @@ public class DbGuideRunner {
                 delete from cities
                 where code = ?;
                 """;
-        try (PreparedStatement statementSelect = DbGuideHelper.createPreparedStatement("jdbc:postgresql://localhost:5432/postgres?currentSchema=public",
-                "root", "root", sqlSelect)
+        try (PreparedStatement statementSelect = DbGuideHelper.createPreparedStatement(sqlSelect)
         ) {
             ResultSet resultSet = null;
             for (int i = 0; i < forAddedCities.size(); i++) {
