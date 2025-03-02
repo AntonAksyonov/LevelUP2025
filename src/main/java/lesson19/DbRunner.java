@@ -1,7 +1,9 @@
 package lesson19;
 
 import lesson19.util.DbHelper;
+import lombok.SneakyThrows;
 
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -10,8 +12,20 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.Properties;
 
 public class DbRunner {
+
+    private static final Properties DB_PROPERTIES = new Properties();
+
+    static {
+        loadDbProperties();
+    }
+
+    @SneakyThrows(IOException.class)
+    private static void loadDbProperties() {
+        DB_PROPERTIES.load(DbRunner.class.getResourceAsStream("/db/db.properties"));
+    }
 
     public static void main(String[] args) throws Exception {
         // мы явно загружаем драйвер
@@ -19,8 +33,11 @@ public class DbRunner {
 //        String id = "5 or 1 = 1; drop database postgres;";
         String id = "1";
         List<Employee> employees = new ArrayList<>();
-        try (Statement statement = DbHelper.createStatement("jdbc:postgresql://localhost:5432/postgres?currentSchema=public",
-                "root", "root")
+        try (Statement statement = DbHelper.createStatement(
+                DB_PROPERTIES.getProperty("db.url"),
+                DB_PROPERTIES.getProperty("db.login"),
+                DB_PROPERTIES.getProperty("db.password")
+        )
         ) {
             ResultSet resultSet = statement.executeQuery("""
                         select emp.id, emp.name, empl.name as boss_name, emp.position_id
@@ -41,12 +58,12 @@ public class DbRunner {
 
         List<Employee> filteredEmployees = new ArrayList<>();
         String sql = """
-                        select emp.id, emp.name, empl.name as boss_name, emp.position_id
-                        from employees emp
-                        left join employees empl on emp.boss_id = empl.id
-                        where emp.id = ? or emp.name = ? or 1 = 1
-                        limit ?
-                    """;
+                    select emp.id, emp.name, empl.name as boss_name, emp.position_id
+                    from employees emp
+                    left join employees empl on emp.boss_id = empl.id
+                    where emp.id = ? or emp.name = ? or 1 = 1
+                    limit ?
+                """;
         try (PreparedStatement statement = DbHelper.createPreparedStatement("jdbc:postgresql://localhost:5432/postgres?currentSchema=public",
                 "root", "root", sql)
         ) {
