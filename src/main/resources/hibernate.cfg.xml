@@ -17,5 +17,7 @@
         <property name="hbm2ddl.auto">validate</property> <!-- NOT FOR PRODUCTION USE -->
 
         <mapping class="lesson20.model.Employee"/>
+        <mapping class="homework21.model.City"/>
+        <mapping class="homework21.model.Region"/>
     </session-factory>
 </hibernate-configuration>

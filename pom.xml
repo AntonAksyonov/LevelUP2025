@@ -15,11 +15,12 @@
         <jackson.version>2.18.2</jackson.version>
         <lombok.version>1.18.34</lombok.version>
         <woodstox-core.version>7.1.0</woodstox-core.version>
-
         <java.version>21</java.version>
         <junit-jupiter.version>5.11.0-M1</junit-jupiter.version>
         <mockito-core.version>5.14.2</mockito-core.version>
-        <postgresql.version>42.7.1</postgresql.version>
+        <postgresql.version>42.7.2</postgresql.version>
+        <commons-dbcp2.version>2.13.0</commons-dbcp2.version>
+        <hibernate-core.version>5.6.15.Final</hibernate-core.version>
     </properties>
 
     <dependencies>
@@ -51,6 +52,7 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -68,6 +70,22 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>${postgresql.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-dbcp2</artifactId>
+            <version>${commons-dbcp2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
