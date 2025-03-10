@@ -11,7 +11,6 @@ public class CityJpaDaoImpl implements CityDao {
 
     @Override
     public List<City> findAll() {
-
         return HibernateHelper.runInTransaction(entityManager -> {
             return entityManager.createQuery("select city from City city").getResultList();
         });

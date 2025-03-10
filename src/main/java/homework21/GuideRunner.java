@@ -45,8 +45,16 @@ public class GuideRunner {
             System.out.println("Введите 'наименование en'");
             String englishName = getScannerLine(scanner);
 
-            System.out.println("Введите 'численность проживающих'");
-            Integer population = Integer.valueOf(getScannerLine(scanner));
+            Integer enteredInt = null;
+            while (enteredInt == null) {
+                System.out.println("Введите 'численность проживающих'");
+                try {
+                    enteredInt = Integer.valueOf(getScannerLine(scanner));
+                } catch (NumberFormatException e) {
+                    System.out.println("При приведении к числу возникла ошибка: " + e.getMessage());
+                }
+            }
+            Integer population = enteredInt;
 
             Optional<Region> enteredRegion = regionDao.findByCode(regionCode);
             RegionHolder regionHolder = new RegionHolder();
